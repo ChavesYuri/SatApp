@@ -53,11 +53,6 @@
 			path = SatAppTests;
 			sourceTree = "<group>";
 		};
-		1A1878A52D8EFCBD00035A35 /* SatAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SatAppUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +85,6 @@
 			children = (
 				1A1878842D8EFCBB00035A35 /* SatApp */,
 				1A18789B2D8EFCBD00035A35 /* SatAppTests */,
-				1A1878A52D8EFCBD00035A35 /* SatAppUITests */,
 				1A1878832D8EFCBB00035A35 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,9 +159,6 @@
 			);
 			dependencies = (
 				1A1878A42D8EFCBD00035A35 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				1A1878A52D8EFCBD00035A35 /* SatAppUITests */,
 			);
 			name = SatAppUITests;
 			packageProductDependencies = (
