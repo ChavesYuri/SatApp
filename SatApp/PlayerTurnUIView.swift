@@ -22,3 +22,7 @@ struct PlayerTurnUIView: View {
 #Preview {
     PlayerTurnUIView(viewModel: .init(questionNumber: 1, playerName: "A name"), selection: {})
 }
+
+#Preview {
+    PlayerTurnUIView(viewModel: .init(questionNumber: 1, playerName: "A name"), selection: {}).preferredColorScheme(.dark)
+}
