@@ -1,14 +1,17 @@
 import SwiftUI
 
 struct SingleAnswerQuestionView: View {
-    let title: String
-    let question: String
+    let viewModel: SingleAnswerQuestionViewModel
     @State var store: SingleSelectionOptionStore
-    let selection: (String) -> Void
+    let selection: (String, TimeInterval) -> Void
+    
+
+    @State private var timer: Timer?
+    @State var elapsedTime: TimeInterval = 0
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0.0) {
-            QuestionHeader(title: title, question: question)
+            QuestionHeader(title: viewModel.title, question: viewModel.questionTitle, elapsedTime: $elapsedTime)
             
             ForEach(store.options.indices, id: \.self) { i in
                 SingleTextSelectionCell(option: $store.options[i], selection: {
@@ -18,8 +21,27 @@ struct SingleAnswerQuestionView: View {
             
             Spacer()
             
-            RoundButton(title: "Select", action: {}).disabled(!store.canSubmit())
+            RoundButton(title: SingleAnswerQuestionViewModel.buttonTitle, action: stopTimerAndSubmit).disabled(!store.canSubmit())
         }
+        .onAppear(perform: startTimer)
+        .onDisappear(perform: stopTimer)
+    }
+    
+    private func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            elapsedTime += 0.1
+        }
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    private func stopTimerAndSubmit() {
+        stopTimer()
+        guard let selectedOption = store.selectedOptionText() else { return }
+        selection(selectedOption, elapsedTime)
     }
 }
 
@@ -40,17 +62,18 @@ struct SingleAnswerQuestion_Previews: PreviewProvider {
         var body: some View {
             VStack {
                 SingleAnswerQuestionView(
-                    title: "You've got 2 rights answers!",
-                    question: "A question",
+                    viewModel: .init(question: "A question", score: 1),
                     store: .init(options: [
                         "First Option",
                         "Second Option",
                         "Third Option",
                         "Forth Option"]),
-                    selection: { selection = $0 }
+                    selection: {  (option, time) in selection = [option, "\(time)"].joined(separator: " ") }
                 )
                 
                 Text("Last selection: " + selection)
+                    .multilineTextAlignment(.center)
+                    .padding()
             }
         }
     }

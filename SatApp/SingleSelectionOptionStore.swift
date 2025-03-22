@@ -22,4 +22,8 @@ struct SingleSelectionOptionStore {
     func canSubmit() -> Bool {
         options.first(where: { $0.isSelected }) != nil
     }
+    
+    func selectedOptionText() -> String? {
+        options.first(where: { $0.isSelected })?.text
+    }
 }
