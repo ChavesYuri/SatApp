@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "89932FDF-2FC7-487A-8BCD-B7F074FC2E3B",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SatApp.xcodeproj",
+      "identifier" : "1A1878812D8EFCBB00035A35",
+      "name" : "SatApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SatApp.xcodeproj",
+        "identifier" : "1A1878972D8EFCBD00035A35",
+        "name" : "SatAppTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SatApp.xcodeproj",
+        "identifier" : "1A1878A12D8EFCBD00035A35",
+        "name" : "SatAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

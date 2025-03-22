@@ -27,6 +27,7 @@
 		1A1878822D8EFCBB00035A35 /* SatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1878982D8EFCBD00035A35 /* SatAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1878A22D8EFCBD00035A35 /* SatAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AB358D52D8F6E1900E72B9C /* SatApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = SatApp.xctestplan; path = SatAppTests/SatApp.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -83,6 +84,7 @@
 		1A1878792D8EFCBB00035A35 = {
 			isa = PBXGroup;
 			children = (
+				1AB358D52D8F6E1900E72B9C /* SatApp.xctestplan */,
 				1A1878842D8EFCBB00035A35 /* SatApp */,
 				1A18789B2D8EFCBD00035A35 /* SatAppTests */,
 				1A1878832D8EFCBB00035A35 /* Products */,
