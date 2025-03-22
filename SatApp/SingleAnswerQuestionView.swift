@@ -10,21 +10,26 @@ struct SingleAnswerQuestionView: View {
     @State var elapsedTime: TimeInterval = 0
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0.0) {
-            QuestionHeader(title: viewModel.title, question: viewModel.questionTitle, elapsedTime: $elapsedTime)
-            
-            ForEach(store.options.indices, id: \.self) { i in
-                SingleTextSelectionCell(option: $store.options[i], selection: {
-                    store.select(at: i)
-                })
-            }.background(.clear)
-            
-            Spacer()
+        VStack {
+            GeometryReader { _ in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0.0) {
+                        QuestionHeader(title: viewModel.title, question: viewModel.questionTitle, elapsedTime: $elapsedTime)
+                        
+                        ForEach(store.options.indices, id: \.self) { i in
+                            SingleTextSelectionCell(option: $store.options[i], selection: {
+                                store.select(at: i)
+                            })
+                        }.background(.clear)
+                    }
+                }
+                .padding(.vertical, 1)
+                .onAppear(perform: startTimer)
+            }
             
             RoundButton(title: SingleAnswerQuestionViewModel.buttonTitle, action: stopTimerAndSubmit).disabled(!store.canSubmit())
         }
-        .onAppear(perform: startTimer)
-        .onDisappear(perform: stopTimer)
+        
     }
     
     private func startTimer() {

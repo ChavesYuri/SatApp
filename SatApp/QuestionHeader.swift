@@ -7,28 +7,31 @@ struct QuestionHeader: View {
     
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 14) {
             Text(title)
                 .font(.headline)
                 .fontWeight(.medium)
                 .foregroundColor(Color.blue)
                 .padding(.top)
+                .multilineTextAlignment(.leading)
+
             
-            HStack(spacing: -18) {
+            HStack(spacing: 0) {
                 Text(SingleAnswerQuestionViewModel.timerTitle)
                     .font(.headline)
                 
                 Text(elapsedTime.formattedTime)
                     .font(.headline)
                     .bold()
-                    .padding()
+                
             }
         
             Text(question)
                 .font(.largeTitle)
                 .fontWeight(.medium)
-        }
-        .padding()
+            
+        }.padding()
+        
     }
 }
 
