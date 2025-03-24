@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1A05B86C2D91D2B40099849D /* QuizEngine_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A05B86B2D91D2B40099849D /* QuizEngine_iOS.framework */; };
+		1A05B86D2D91D2B40099849D /* QuizEngine_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A05B86B2D91D2B40099849D /* QuizEngine_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		1A1878992D8EFCBD00035A35 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -23,7 +28,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1A05B86E2D91D2B40099849D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A05B86D2D91D2B40099849D /* QuizEngine_iOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1A05B86B2D91D2B40099849D /* QuizEngine_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuizEngine_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1878822D8EFCBB00035A35 /* SatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1878982D8EFCBD00035A35 /* SatAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1878A22D8EFCBD00035A35 /* SatAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A05B86C2D91D2B40099849D /* QuizEngine_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,12 +102,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A05B86A2D91D2B40099849D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A05B86B2D91D2B40099849D /* QuizEngine_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1A1878792D8EFCBB00035A35 = {
 			isa = PBXGroup;
 			children = (
 				1AB358D52D8F6E1900E72B9C /* SatApp.xctestplan */,
 				1A1878842D8EFCBB00035A35 /* SatApp */,
 				1A18789B2D8EFCBD00035A35 /* SatAppTests */,
+				1A05B86A2D91D2B40099849D /* Frameworks */,
 				1A1878832D8EFCBB00035A35 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +141,7 @@
 				1A18787E2D8EFCBB00035A35 /* Sources */,
 				1A18787F2D8EFCBB00035A35 /* Frameworks */,
 				1A1878802D8EFCBB00035A35 /* Resources */,
+				1A05B86E2D91D2B40099849D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
