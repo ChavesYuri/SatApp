@@ -30,7 +30,7 @@ struct RoundResultView: View {
                 .init(name: "A first name", answer: "A2", time: 1.9),
                 .init(name: "A second name", answer: "A2", time: 1.2),
                 .init(name: "A third name", answer: "A1", time: 1.3),
-                .init(name: "A forth name", answer: "A2", time: 1.1)
+                .init(name: "A fourth name", answer: "A2", time: 1.1)
             ],
             correctAnswer: "A1"),
         action: {}
@@ -44,7 +44,7 @@ struct RoundResultView: View {
                 .init(name: "A first name", answer: "A2", time: 1.9),
                 .init(name: "A second name", answer: "A2", time: 1.2),
                 .init(name: "A third name", answer: "A1", time: 1.3),
-                .init(name: "A forth name", answer: "A2", time: 1.1)
+                .init(name: "A fourth name", answer: "A2", time: 1.1)
             ],
             correctAnswer: "A1"),
         action: {}
