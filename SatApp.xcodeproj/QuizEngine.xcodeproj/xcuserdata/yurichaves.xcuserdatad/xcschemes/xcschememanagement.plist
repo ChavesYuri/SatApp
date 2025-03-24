@@ -4,25 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SatApp.xcscheme_^#shared#^_</key>
+		<key>QuizEngine.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
+		</dict>
+		<key>QuizEngine_iOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1A1878812D8EFCBB00035A35</key>
+		<key>1A1877D02D8AFEA200035A35</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A1878972D8EFCBD00035A35</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1A1878A12D8EFCBD00035A35</key>
+		<key>1A1877D82D8AFEA200035A35</key>
 		<dict>
 			<key>primary</key>
 			<true/>
