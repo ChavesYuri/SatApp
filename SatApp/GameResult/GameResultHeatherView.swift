@@ -22,7 +22,6 @@ struct GameResultHeatherView: View {
                     .fontWeight(.medium)
             }
             
-            
         }.padding()
     }
 }
