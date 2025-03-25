@@ -41,7 +41,7 @@ struct GameResultView: View {
             
             List(viewModel.items.indices, id: \.self) { position in
                 Section(header: Text(viewModel.items[position].question)
-                    .font(Font.system(.title3))
+                    .font(Font.system(.headline))
                     .fontWeight(.bold)
                     .foregroundColor(.blue)) {
                         ForEach(viewModel.items[position].players.indices, id: \.self) { i in
@@ -49,7 +49,7 @@ struct GameResultView: View {
                             PlayerQuestionResultCell(
                                 name: player.name,
                                 answer: player.answer,
-                                time: "\(player.time)",
+                                time: player.time.formattedTime,
                                 isCorrect: player.isCorrect)
                         }
                     }
@@ -61,7 +61,7 @@ struct GameResultView: View {
 #Preview {
     GameResultView(viewModel: .init(
         players: [
-            .init(id: UUID(), name: "First player", answers: ["Q1": .init(answer: "A1", time: 1.2), "Q2": .init(answer: "A1", time: 1.3)], score: 2)
+            .init(name: "A name")
         ],
         correctAnswers: ["Q1": "A1", "Q2": "A2"]))
 }

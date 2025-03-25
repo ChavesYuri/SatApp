@@ -1,11 +1,12 @@
 import Foundation
+import QuizEngine_iOS
 
 final class GameResultViewModel<Question: Hashable, Answer: Equatable> {
     private let winnerThreshold: Int = 3
-    let players: [PlayerResult<Question, Answer>]
+    let players: [Player<Question, Answer>]
     let correctAnswers: [Question: Answer]
     
-    init(players: [PlayerResult<Question, Answer>], correctAnswers: [Question: Answer]) {
+    init(players: [Player<Question, Answer>], correctAnswers: [Question: Answer]) {
         self.players = players
         self.correctAnswers = correctAnswers
     }
@@ -31,7 +32,7 @@ final class GameResultViewModel<Question: Hashable, Answer: Equatable> {
             }
             
             return GameResultItem(question: question, correctAnswer: correctAnswer, players: playersPerQuestion)
-        }
+        }.filter { !$0.players.isEmpty }
     }
     
     var noWinnerTitle: String { "There was no winner since no one scored \(winnerThreshold) points" }

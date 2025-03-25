@@ -1,6 +1,6 @@
 import Foundation
 import XCTest
-import QuizEngine_iOS
+import QuizEngine
 
 final class GameTest: XCTestCase {
     let router = RouterSpy()

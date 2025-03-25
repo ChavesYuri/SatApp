@@ -27,7 +27,7 @@ struct QuestionHeader: View {
             }
         
             Text(question)
-                .font(.largeTitle)
+                .font(.headline)
                 .fontWeight(.medium)
             
         }.padding()

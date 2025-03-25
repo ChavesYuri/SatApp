@@ -1,46 +1,31 @@
 import SwiftUI
 
 struct SingleAnswerQuestionView: View {
-    let viewModel: SingleAnswerQuestionViewModel
+    @StateObject var viewModel: SingleAnswerQuestionViewModel
     @State var store: SingleSelectionOptionStore
     let selection: (String, TimeInterval) -> Void
-    
-
-    @State private var timer: Timer?
-    @State var elapsedTime: TimeInterval = 0
     
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 0.0) {
-                QuestionHeader(title: viewModel.title, question: viewModel.questionTitle, elapsedTime: $elapsedTime)
+                QuestionHeader(title: viewModel.title, question: viewModel.questionTitle, elapsedTime: $viewModel.elapsedTime)
                 
                 List(store.options.indices, id: \.self) { i in
                     SingleTextSelectionCell(option: $store.options[i], selection: {
                         store.select(at: i)
                     })
                 }.listStyle(PlainListStyle())
-            }.onAppear(perform: startTimer)
+            }
             
             RoundButton(title: SingleAnswerQuestionViewModel.buttonTitle, action: stopTimerAndSubmit).disabled(!store.canSubmit())
-        }
+        }.onAppear(perform: viewModel.startTimer)
         
     }
     
-    private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-            elapsedTime += 0.1
-        }
-    }
-    
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
-    
     private func stopTimerAndSubmit() {
-        stopTimer()
+        viewModel.stopTimer()
         guard let selectedOption = store.selectedOptionText() else { return }
-        selection(selectedOption, elapsedTime)
+        selection(selectedOption, viewModel.elapsedTime)
     }
 }
 

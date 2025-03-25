@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Player: Hashable {
+struct PlayerRoundAnswer: Hashable {
     let name: String
     let answer: String
     let time: TimeInterval
@@ -27,11 +27,10 @@ struct RoundResultView: View {
     RoundResultView(
         viewModel: .init(
             players: [
-                .init(name: "A first name", answer: "A2", time: 1.9),
-                .init(name: "A second name", answer: "A2", time: 1.2),
-                .init(name: "A third name", answer: "A1", time: 1.3),
-                .init(name: "A fourth name", answer: "A2", time: 1.1)
+                .init(name: "a name"),
+                .init(name: "a second name")
             ],
+            question: "Q1",
             correctAnswer: "A1"),
         action: {}
     )
@@ -41,11 +40,10 @@ struct RoundResultView: View {
     RoundResultView(
         viewModel: .init(
             players: [
-                .init(name: "A first name", answer: "A2", time: 1.9),
-                .init(name: "A second name", answer: "A2", time: 1.2),
-                .init(name: "A third name", answer: "A1", time: 1.3),
-                .init(name: "A fourth name", answer: "A2", time: 1.1)
+                .init(name: "A name"),
+                .init(name: "a second name")
             ],
+            question: "Q1",
             correctAnswer: "A1"),
         action: {}
     ).preferredColorScheme(.dark)

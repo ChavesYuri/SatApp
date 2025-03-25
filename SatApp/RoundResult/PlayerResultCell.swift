@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PlayerResultCell: View {
-    let player: Player
+    let player: PlayerRoundAnswer
     let isAnswerCorrect: (String) -> Bool
     
     var body: some View {
@@ -15,7 +15,7 @@ struct PlayerResultCell: View {
                 
                 Text(RoundResultViewModel.timeTakenTitle)
                     .foregroundColor(Color(UIColor.secondaryLabel)) +
-                Text("\(player.time)")
+                Text(player.time.formattedTime)
                 
                 Text(RoundResultViewModel.answerTitle)
                     .foregroundColor(Color(UIColor.secondaryLabel)) +

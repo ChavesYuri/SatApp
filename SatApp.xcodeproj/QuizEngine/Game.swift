@@ -18,21 +18,13 @@ public func startGame<Question: Hashable, Answer: Equatable, R: Router>(
         players: players,
         router: router,
         questions: questions,
-        scoring: { GamePolicy.scoring(players: $0, question: $1, correctAnswers: correctAnswers) },
-        isAnswerCorrect: { GamePolicy.validateQuestion( question: $0, answer: $1, correctAnswers: correctAnswers) })
+        correctAnswers: correctAnswers,
+        scoring: { GamePolicy.scoring(players: $0, question: $1, correctAnswers: correctAnswers) })
     flow.start()
     return Game(flow: flow)
 }
 
 internal final class GamePolicy {
-    internal static func validateQuestion<Question: Hashable, Answer: Equatable>(
-        question: Question,
-        answer: Answer,
-        correctAnswers: [Question: Answer]
-    ) -> Bool {
-        answer == correctAnswers[question]
-    }
-    
     internal static func scoring<Question: Hashable, Answer: Equatable>(players: [Player<Question, Answer>], question: Question, correctAnswers: [Question: Answer]) {
         var playersWithRightAnswers = players.filter { $0.answers[question]?.answer == correctAnswers[question] }
         

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RoundResultHeader: View {
-    let winner: Player?
+    let winner: PlayerRoundAnswer?
     
     var body: some View {
         VStack {

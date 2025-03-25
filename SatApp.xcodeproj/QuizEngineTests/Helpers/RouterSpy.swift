@@ -1,5 +1,5 @@
 import Foundation
-import QuizEngine_iOS
+import QuizEngine
 
 final class RouterSpy: Router {
     private(set) var playerTurnRequests: [(player: Player<String, String>, questionNumber: Int, onStart: () -> Void)] = []
@@ -10,7 +10,7 @@ final class RouterSpy: Router {
     
     private(set) var questionsRequests: [(question: String, answer: (String, TimeInterval) -> Void)] = []
     
-    func routeToQuestionScreen(_ question: String, _ answer: @escaping (String, TimeInterval) -> Void) {
+    func routeToQuestionScreen(_ question: String, player: Player<String, String>, _ answer: @escaping (String, TimeInterval) -> Void) {
         questionsRequests.append((question, answer))
     }
     
@@ -28,7 +28,7 @@ final class RouterSpy: Router {
     
     private(set) var gameResultCallCount = 0
     
-    func routeToGameResult() {
+    func routeToGameResult(_ result: GameResult<String, String>) {
         gameResultCallCount += 1
     }
 }
