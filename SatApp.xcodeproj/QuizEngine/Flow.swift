@@ -9,7 +9,7 @@ final class Flow <Question: Hashable, Answer, R: Router> where R.Question == Que
     private let scoring: ([Player<Question, Answer>], Question) -> Void
     
     
-    public init(
+    init(
         players: [Player<Question, Answer>],
         router: R,
         questions: [Question],
