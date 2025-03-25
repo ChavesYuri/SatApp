@@ -1,6 +1,6 @@
 import Foundation
 
-public final class Flow <Question: Hashable, Answer, R: Router> where R.Question == Question, R.Answer == Answer {
+final class Flow <Question: Hashable, Answer, R: Router> where R.Question == Question, R.Answer == Answer {
     private let winnerScore: Int = 3
     private var players: [Player<Question, Answer>]
     private let router: R

@@ -1,6 +1,6 @@
 import Foundation
 import XCTest
-import QuizEngine
+@testable import QuizEngine
 
 final class FlowTest: XCTestCase {
     func test_start_noQuestionsAndOnePlayer_routesToGameResult() {

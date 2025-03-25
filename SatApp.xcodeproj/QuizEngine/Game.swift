@@ -1,9 +1,9 @@
 import Foundation
 
 public class Game<Question: Hashable, Answer, R: Router> where R.Question == Question, R.Answer == Answer {
-    private let flow: Flow<Question, Answer, R>
+    let flow: Flow<Question, Answer, R>
     
-    public init(flow: Flow<Question, Answer, R>) {
+    init(flow: Flow<Question, Answer, R>) {
         self.flow = flow
     }
 }
