@@ -9,7 +9,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    private lazy var navigationController = UINavigationController()
+    private lazy var navigationController: UINavigationController = {
+        let navigation = UINavigationController()
+        navigation.setNavigationBarHidden(true, animated: false)
+        
+        return navigation
+    }()
     
     var game: Game<String, String, NavigationControllerRouter>?
 
