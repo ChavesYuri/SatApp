@@ -27,8 +27,8 @@ struct RoundResultView: View {
     RoundResultView(
         viewModel: .init(
             players: [
-                .init(name: "a name"),
-                .init(name: "a second name")
+                .init(name: "A name", answer: "A1", time: 1),
+                .init(name: "A second name", answer: "A2", time: 2)
             ],
             question: "Q1",
             correctAnswer: "A1"),
@@ -40,8 +40,8 @@ struct RoundResultView: View {
     RoundResultView(
         viewModel: .init(
             players: [
-                .init(name: "A name"),
-                .init(name: "a second name")
+                .init(name: "A name", answer: "A1", time: 1),
+                .init(name: "A second name", answer: "A2", time: 2)
             ],
             question: "Q1",
             correctAnswer: "A1"),

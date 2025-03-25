@@ -61,7 +61,7 @@ struct GameResultView: View {
 #Preview {
     GameResultView(viewModel: .init(
         players: [
-            .init(name: "A name")
+            .init(id: UUID(), name: "A name", answers: ["Q1" : (answer: "A1", time: 1.0)], score: 1)
         ],
         correctAnswers: ["Q1": "A1", "Q2": "A2"]))
 }

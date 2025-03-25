@@ -2,8 +2,6 @@ import Foundation
 import SwiftUI
 import QuizEngine_iOS
 
-
-
 final class GameViewControllerFactory: ViewControllerFactory {
     private let options: [String: [String]]
     
@@ -37,17 +35,24 @@ final class GameViewControllerFactory: ViewControllerFactory {
     }
     
     func makeRoundResultViewController(players: [Player<String, String>], question: String, correctAnswer: String, completion: @escaping () -> Void) -> UIViewController {
-        let viewModel = RoundResultViewModel(players: players, question: question, correctAnswer: correctAnswer)
+        let viewModel = RoundResultViewModel(players: mapToPlayerRoundAnswer(players, question), question: question, correctAnswer: correctAnswer)
         let view = RoundResultView(viewModel: viewModel, action: completion)
         let viewController = UIHostingController(rootView: view)
         return viewController
     }
     
     func makeGameResultViewController(result: GameResult<String, String>) -> UIViewController {
-        let viewModel = GameResultViewModel<String, String>(players: result.players, correctAnswers: result.correctAnswers)
+        let viewModel = GameResultViewModel<String, String>(players: result.players.map { PlayerResult(id: $0.id, name: $0.name, answers: $0.answers, score: $0.score) }, correctAnswers: result.correctAnswers)
         let view = GameResultView(viewModel: viewModel)
         let viewController = UIHostingController(rootView: view)
         
         return viewController
+    }
+    
+    private func mapToPlayerRoundAnswer(_ players: [Player<String, String>], _ question: String) -> [PlayerRoundAnswer] {
+        players.compactMap { player in
+            guard let (answer, time) = player.answers[question] else { return nil }
+            return PlayerRoundAnswer(name: player.name, answer: answer, time: time)
+        }
     }
 }

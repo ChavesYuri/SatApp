@@ -1,12 +1,11 @@
 import Foundation
-import QuizEngine_iOS
 
 final class GameResultViewModel<Question: Hashable, Answer: Equatable> {
     private let winnerThreshold: Int = 3
-    let players: [Player<Question, Answer>]
+    let players: [PlayerResult<Question, Answer>]
     let correctAnswers: [Question: Answer]
     
-    init(players: [Player<Question, Answer>], correctAnswers: [Question: Answer]) {
+    init(players: [PlayerResult<Question, Answer>], correctAnswers: [Question: Answer]) {
         self.players = players
         self.correctAnswers = correctAnswers
     }

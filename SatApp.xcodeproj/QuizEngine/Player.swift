@@ -1,7 +1,7 @@
 import Foundation
 
 public class Player<Question: Hashable, Answer>: Equatable {
-    private let id: UUID = UUID()
+    public let id: UUID = UUID()
     public let name: String
     public var score: Int = 0
     public var answers: [Question: (answer: Answer, time: TimeInterval)] = [:]

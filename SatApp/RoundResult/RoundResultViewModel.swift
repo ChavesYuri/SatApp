@@ -1,12 +1,11 @@
 import Foundation
-import QuizEngine_iOS
 
 final class RoundResultViewModel {
-    private let players: [Player<String, String>]
+    private let players: [PlayerRoundAnswer]
     private let question: String
     private let correctAnswer: String
     
-    init(players: [Player<String, String>], question: String, correctAnswer: String) {
+    init(players: [PlayerRoundAnswer], question: String, correctAnswer: String) {
         self.players = players
         self.question = question
         self.correctAnswer = correctAnswer
@@ -21,10 +20,7 @@ final class RoundResultViewModel {
     }
     
     var allPlayers: [PlayerRoundAnswer] {
-        players.compactMap { player in
-            guard let (answer, time) = player.answers[question] else { return nil }
-            return PlayerRoundAnswer(name: player.name, answer: answer, time: time)
-        }
+        players
     }
     
     func isAnswerCorrect(_ answer: String) -> Bool {
