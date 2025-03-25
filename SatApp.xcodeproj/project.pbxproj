@@ -54,7 +54,7 @@
 		1A1878AA2D8EFCBD00035A35 /* Exceptions for "SatApp" folder in "SatApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Main/Info.plist,
 			);
 			target = 1A1878812D8EFCBB00035A35 /* SatApp */;
 		};
