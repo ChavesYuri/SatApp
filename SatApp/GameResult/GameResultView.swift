@@ -53,7 +53,9 @@ struct GameResultView: View {
                                 isCorrect: player.isCorrect)
                         }
                     }
-            }.listStyle(.plain)
+            }
+            .listStyle(.plain)
+            .padding(.bottom, 1)
         }
     }
 }
