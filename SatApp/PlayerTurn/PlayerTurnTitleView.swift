@@ -6,7 +6,7 @@ struct PlayerTurnTitleView: View {
     let warningTitle: String
     
     var body: some View {
-        VStack(spacing: 6) {
+        VStack(alignment: .leading, spacing: 6) {
             Text(PlayerTurnViewModel.playerTurnTitlePrefix)
                 .font(.title) +
             Text(name)
