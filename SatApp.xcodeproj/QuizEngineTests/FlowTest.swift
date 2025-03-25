@@ -35,7 +35,7 @@ final class FlowTest: XCTestCase {
     
     func test_start_withOneQuestionAndOnePlayer_routesToFirstPlayerTurn() {
         let players: [Player<String, String>] = [.init(name: "a player")]
-        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players)
+        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players, correctAnswers: ["Q1": "A1"])
         
         sut.start()
         
@@ -46,7 +46,7 @@ final class FlowTest: XCTestCase {
     
     func test_startAndFirstPlayerInitiatesGame_withOneQuestionAndOnePlayer_routesToFirstQuestion() {
         let players: [Player<String, String>] = [.init(name: "a player")]
-        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players)
+        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players, correctAnswers: ["Q1": "A1"])
         
         sut.start()
         routerSpy.playerTurnRequests[0].onStart()
@@ -59,7 +59,7 @@ final class FlowTest: XCTestCase {
     
     func test_startAndFirstPlayerInitiatesGameAndAnswersFirstQuestion_withOneQuestionAndOnePlayer_routesToQuestionResult() {
         let players: [Player<String, String>] = [.init(name: "a player")]
-        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players)
+        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players, correctAnswers: ["Q1": "A1"])
         
         sut.start()
         routerSpy.playerTurnRequests[0].onStart()
@@ -75,7 +75,7 @@ final class FlowTest: XCTestCase {
     
     func test_startAndFirstPlayerStartsAndAnswersQuestionAndCompletesQuestionResult_withOneQuestionAndOnePlayer_routesToRoundResult() {
         let players: [Player<String, String>] = [.init(name: "a player")]
-        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players)
+        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players, correctAnswers: ["Q1": "A1"])
         
         sut.start()
         routerSpy.playerTurnRequests[0].onStart()
@@ -88,7 +88,7 @@ final class FlowTest: XCTestCase {
     
     func test_startAndFirstPlayerStartsAndAnswersQuestionAndCompletesQuestionResult_withTwoQuestionAndOnePlayer_routesToRoundResult() {
         let players: [Player<String, String>] = [.init(name: "a player")]
-        let (sut, routerSpy) = makeSUT(questions: ["Q1", "Q2"], players: players)
+        let (sut, routerSpy) = makeSUT(questions: ["Q1", "Q2"], players: players, correctAnswers: ["Q1": "A1", "Q2": "A2"])
         
         sut.start()
         routerSpy.playerTurnRequests[0].onStart()
@@ -101,7 +101,7 @@ final class FlowTest: XCTestCase {
     
     func test_startAndFirstPlayerStartsAndAnswersQuestionAndCompletesQuestionResult_withOneQuestionAndTwoPlayers_routesToSecondPlayerTurn() {
         let players: [Player<String, String>] = [.init(name: "a player"), .init(name: "Another Player")]
-        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players)
+        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players, correctAnswers: ["Q1": "A1"])
         
         sut.start()
         routerSpy.playerTurnRequests[0].onStart()
@@ -116,7 +116,7 @@ final class FlowTest: XCTestCase {
     
     func test_start_firstAndSecondPlayerFinishesQuestions_withOneQuestionAndTwoPlayers_secondPlayerScores3Points_routesToGameResult() {
         let players: [Player<String, String>] = [.init(name: "a player"), .init(name: "Another Player")]
-        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players) { players, _ in
+        let (sut, routerSpy) = makeSUT(questions: ["Q1"], players: players, correctAnswers: ["Q1": "A1"]) { players, _ in
             players[1].score = 3
         }
         
@@ -136,7 +136,7 @@ final class FlowTest: XCTestCase {
     
     func test_start_firstAndSecondPlayerFinishesQuestions_withTwoQuestionsAndTwoPlayers_secondPlayerScores1PointOnFirstRound_routesToFirstPlayerTurn() {
         let players: [Player<String, String>] = [.init(name: "a player"), .init(name: "Another Player")]
-        let (sut, routerSpy) = makeSUT(questions: ["Q1", "Q2"], players: players) { players, _ in
+        let (sut, routerSpy) = makeSUT(questions: ["Q1", "Q2"], players: players, correctAnswers: ["Q1": "A1", "Q2": "A2"]) { players, _ in
             players[1].score = 1
         }
         
@@ -166,7 +166,7 @@ final class FlowTest: XCTestCase {
         line: UInt = #line
     ) -> (Flow<String, String, RouterSpy>, RouterSpy) {
         let routerSpy = RouterSpy()
-        let sut = Flow(players: players, router: routerSpy, questions: questions, correctAnswers: correctAnswers, scoring: scoring, isAnswerCorrect: { _, _ in false })
+        let sut = Flow(players: players, router: routerSpy, questions: questions, correctAnswers: correctAnswers, scoring: scoring)
         
         trackForMemoryLeaks(routerSpy, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)

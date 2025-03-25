@@ -22,7 +22,7 @@ final class RouterSpy: Router {
     
     private(set) var roundResultRequests: [(players: [Player<String, String>], completion: () -> Void)] = []
     
-    func routeToRoundResult(players: [Player<String, String>], completion: @escaping () -> Void) {
+    func routeToRoundResult(players: [Player<String, String>], question: String, correctAnswer: String, completion: @escaping () -> Void) {
         roundResultRequests.append((players, completion))
     }
     
