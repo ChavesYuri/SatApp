@@ -1,5 +1,5 @@
 **About the project**
-- This is a take home assigment
+- This is a take home assignment
 - The intent is to create an async trivia game where 2 players compete to answer SAT math questions as quickly and accurately as possible.
 
 **Architecture overview**:
